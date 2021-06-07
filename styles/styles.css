@@ -1,0 +1,128 @@
+#livemap { 
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.status-green {
+    background-color: azure;
+    color: rgb(107, 179, 0);
+    font-weight: bold;
+    position: absolute;
+    z-index: 2;
+    bottom:2%;
+    left:2%;
+}
+
+.status-red {
+    background-color: azure;
+    color:crimson;
+    font-weight: bold;
+    position: absolute;
+    z-index: 2;
+    bottom:2%;
+    left:2%;
+}
+
+.info-box{
+    background-color: rgb(101, 104, 104);
+    position: absolute;
+    border-radius: 25px;
+    opacity: 0.9;
+    height: 550px;
+    width: 270px;
+    top: 25%;
+    right: 2%;
+    z-index:3;
+    visibility: visible;
+}
+
+.close-button{
+    color: rgb(241, 238, 238);
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top:4%;
+    right:8%;
+    cursor: pointer;
+
+
+}
+
+.callsign-title{
+    color: rgb(241, 238, 238);
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
+    font-size: 22px;
+    position: absolute;
+    top:12%;
+    right:42%;
+}
+.aircraft-info{
+    position: absolute;
+    top:22%;
+    left: 5%;
+}
+
+.aircraft-info-title{
+    color: rgb(241, 238, 238);
+    font-size: 12px;
+    font-weight: lighter;
+    font-family: Helvetica, sans-serif;
+    padding:2px;
+}
+
+.aircraft-info-value{
+    color: rgb(241, 238, 238);
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    padding:1px;
+}
+
+
+.flight-info{
+    position: absolute;
+    top:68%;
+    left:1;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    gap: 5% 0px;
+    grid-template-areas:
+      "mfr-title aircraft-mfr"
+      "model-title aircraft-model"
+      "reg-title aircraft-registration"
+      "hex-title aircraft-hex"
+      "callsign-title aircraft-callsign"
+      "position-title aircraft-position"
+      "altitude-title aircraft-altitude"
+      "ground-speed-title aircraft-ground-speed"
+      "vertical-rate-title aircraft-vertical-rate"
+      "heading-title aircraft-heading";
+  }
+  .mfr-title { grid-area: mfr-title; }
+  .aircraft-mfr { grid-area: aircraft-mfr; }
+  .model-title { grid-area: model-title; }
+  .aircraft-model { grid-area: aircraft-model; }
+  .reg-title { grid-area: reg-title; }
+  .aircraft-registration { grid-area: aircraft-registration; }
+  .hex-title { grid-area: hex-title; }
+  .aircraft-hex { grid-area: aircraft-hex; }
+  .callsign-title { grid-area: callsign-title; }
+  .aircraft-callsign { grid-area: aircraft-callsign; }
+  .position-title { grid-area: position-title; }
+  .aircraft-position { grid-area: aircraft-position; }
+  .altitude-title { grid-area: altitude-title; }
+  .aircraft-altitude { grid-area: aircraft-altitude; }
+  .ground-speed-title { grid-area: ground-speed-title; }
+  .aircraft-ground-speed { grid-area: aircraft-ground-speed; }
+  .vertical-rate-title { grid-area: vertical-rate-title; }
+  .aircraft-vertical-rate { grid-area: aircraft-vertical-rate; }
+  .heading-title { grid-area: heading-title; }
+  .aircraft-heading { grid-area: aircraft-heading; }
