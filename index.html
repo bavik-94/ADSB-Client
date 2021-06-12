@@ -10,11 +10,12 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
 
-    <script src="scripts/map-setup.js" type="text/javascript"></script>
+    <script src="scripts/map-utility.js" type="text/javascript"></script>
     <script src="scripts/connection-handler.js" type="text/javascript"></script>
     <script src="scripts/aircraft-handler.js" type="text/javascript"></script>
     <script src="scripts/aircraft.js" type="text/javascript"></script>
     <script src="scripts/inspect-flight.js" type="text/javascript"></script>
+    <script src="scripts/sidebar.js" type="text/javascript"></script>
     <script src="plugins/Leaflet.hotline-master/src/leaflet.hotline.js"></script>
 </head>
 
@@ -29,10 +30,10 @@
                     <div class="model-title aircraft-info-title">MODEL</div>
                     <div id ='aircraft-model' class="aircraft-model aircraft-info-value">None</div>
                     <div class="reg-title aircraft-info-title">REGISTRATION</div>
-                    <div id ='aircraft-registration' class="aircraft-reg aircraft-info-value">None</div>
+                    <div id ='aircraft-reg' class="aircraft-reg aircraft-info-value">None</div>
                     <div class="hex-title aircraft-info-title">HEX</div>
-                    <div id ='aircraft-hex' class="aircraft-hex aircraft-info-value">None</div>
-                    <div class="callsign-title aircraft-info-title"></div>
+                    <div id ='aircraft-hex_ident' class="aircraft-hex aircraft-info-value">None</div>
+                    <div class="callsign-title aircraft-info-title">CALLSIGN</div>
                     <div id ='aircraft-callsign' class="aircraft-callsign aircraft-info-value">&nbsp</div>
                  
            
@@ -41,11 +42,11 @@
                     <div class="altitude-title aircraft-info-title">ALTITUDE</div>
                     <div id= 'aircraft-altitude' class="aircraft-altitude aircraft-info-value">None</div>
                     <div class="ground-speed-title aircraft-info-title">GROUND SPEED</div>
-                    <div id= 'aircraft-ground-speed' class="aircraft-ground-speed aircraft-info-value">None</div>
+                    <div id= 'aircraft-ground_speed' class="aircraft-ground-speed aircraft-info-value">None</div>
                     <div class="vertical-rate-title aircraft-info-title">VERTICAL RATE</div>
-                    <div id= 'aircraft-vertical-rate' class="aircraft-vertical-rate aircraft-info-value">None</div>
+                    <div id= 'aircraft-vertical_rate' class="aircraft-vertical-rate aircraft-info-value">None</div>
                     <div class="heading-title aircraft-info-title">HEADING</div>
-                    <div id= 'aircraft-heading' class="aircraft-heading aircraft-info-value">None</div>
+                    <div id= 'aircraft-track' class="aircraft-heading aircraft-info-value">None</div>
                 </div>
 
         </div>
