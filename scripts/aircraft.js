@@ -73,19 +73,6 @@ class Aircraft{
         }
 
         sideBar.updateDivs(this);
-        // document.getElementById('call-sign-title').innerHTML = this.callsign;
-
-        // document.getElementById('aircraft-mfr').innerHTML = this.mfr;
-        // document.getElementById('aircraft-model').innerHTML = this.model;
-        // document.getElementById('aircraft-registration').innerHTML = 'N' + this.reg;
-        // document.getElementById('aircraft-callsign').innerHTML = this.callsign;
-        // document.getElementById('aircraft-hex').innerHTML = this.hex_ident;
-
-        // document.getElementById('aircraft-position').innerHTML = this.lat + ', ' + this.lon;
-        // document.getElementById('aircraft-altitude').innerHTML = this.altitude;
-        // document.getElementById('aircraft-ground-speed').innerHTML = this.ground_speed;
-        // document.getElementById('aircraft-vertical-rate').innerHTML = this.vertical_rate;
-        // document.getElementById('aircraft-heading').innerHTML = this.track;
     }
 
 }
