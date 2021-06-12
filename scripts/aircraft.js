@@ -1,66 +1,91 @@
 class Aircraft{
     constructor(data){
         Object.assign(this,data);
-        this.marker = undefined
-        this.selected = false
-        this.history = []
+        this.marker = null;
+        this.selected = false;
+        this.history = [];
+        this.polyLine = null;
     }
 
     update(data){
-        Object.assign(this,data)
+        Object.assign(this,data);
 
-        if(this.selected == true){ //update flight info box as data updates
-            this.updateInfoBox()
-            this.history.push([this.lat, this.lon, this.altitude])
-            drawActiveLines()
+        if(this.selected == true){ // update info box and flight path line if currently inspected aircraft
+            this.updateSideBar();
+            this.history.push([this.lat, this.lon, this.altitude]); //add new position to history list
+            this.setPolyLine();
+            
         }
     }
 
+    setPolyLine(){ // removes any existing lines, creates new line
+        if (this.polyLine){
+            this.polyLine.remove(livemap);
+            this.polyLine = null;
+        }
+        this.polyLine = drawActiveLines(this);
+    }
+    
     setMarker(){ //updates an existing marker or creates a new one if no match was found
-        
-        if (this.marker != undefined){
-            var iconClass = this.icon_type + (Math.round(this.track/15)) * 15; // set icon to sprite based on heading
-            var nIcon = L.divIcon ({className: iconClass, iconSize : [39,39]});
-            this.marker.setIcon(nIcon)
-            this.marker.setLatLng([this.lat, this.lon]);
-            return
+        if (this.marker){
+            updateMarker(this);
+            return;
         }
     this.marker = newMarker(this); 
     }
 
     removeMarker(){
         this.marker.remove(livemap)
-        this.marker = undefined
+        this.marker = null;
     }
 
-    setHistory(data){ //populate list of aircraft positions to build line
-        for (i = 0; i < data.lat.length; i++){
+    setHistory(data){ //populate list of aircraft positions to build line from history request
+        for (var i = 0; i < data.lat.length; i++){
             var newPoint = [data.lat[i],data.lon[i],data.altitude[i]]
-            this.history.push(newPoint)
+            this.history.push(newPoint);
             }
     }
 
-    updateInfoBox(){
-        if (this.callsign == NaN){
-            this.callsign = 'N' + this.reg
+    setInspected(data){
+        document.getElementById('info-box').style.visibility = 'visible';
+        this.selected = true;
+        this.updateSideBar();
+        this.setHistory(data);
+        this.setPolyLine();
+    }
+
+    removeInspected(){
+        document.getElementById('info-box').style.visibility = 'hidden'
+        this.selected = false;
+        this.history = [];
+        if (this.polyLine){
+            this.polyLine.remove(livemap);
         }
-        if (this.reg == NaN){
-            this.callsign = this.hex_ident
+        this.polyLine = null;
+    }
+
+    updateSideBar(){
+        if (this.callsign == null){
+            this.callsign = 'N' + this.reg;
+        }
+        if (this.reg == null){
+            this.callsign = this.hex_ident;
         }
 
-        document.getElementById('call-sign-title').innerHTML = this.callsign
+        sideBar.updateDivs(this);
+        // document.getElementById('call-sign-title').innerHTML = this.callsign;
 
-        document.getElementById('aircraft-mfr').innerHTML = this.mfr
-        document.getElementById('aircraft-model').innerHTML = this.model
-        document.getElementById('aircraft-registration').innerHTML = 'N' + this.reg
-        //document.getElementById('aircraft-callsign').innerHTML = this.callsign
-        document.getElementById('aircraft-hex').innerHTML = this.hex_ident
+        // document.getElementById('aircraft-mfr').innerHTML = this.mfr;
+        // document.getElementById('aircraft-model').innerHTML = this.model;
+        // document.getElementById('aircraft-registration').innerHTML = 'N' + this.reg;
+        // document.getElementById('aircraft-callsign').innerHTML = this.callsign;
+        // document.getElementById('aircraft-hex').innerHTML = this.hex_ident;
 
-        document.getElementById('aircraft-position').innerHTML = this.lat + ', ' + this.lon
-        document.getElementById('aircraft-altitude').innerHTML = this.altitude
-        document.getElementById('aircraft-ground-speed').innerHTML = this.ground_speed
-        document.getElementById('aircraft-vertical-rate').innerHTML = this.vertical_rate
-        document.getElementById('aircraft-heading').innerHTML = this.track
+        // document.getElementById('aircraft-position').innerHTML = this.lat + ', ' + this.lon;
+        // document.getElementById('aircraft-altitude').innerHTML = this.altitude;
+        // document.getElementById('aircraft-ground-speed').innerHTML = this.ground_speed;
+        // document.getElementById('aircraft-vertical-rate').innerHTML = this.vertical_rate;
+        // document.getElementById('aircraft-heading').innerHTML = this.track;
     }
 
 }
