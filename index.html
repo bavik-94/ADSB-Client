@@ -21,8 +21,31 @@
 
 <html>
     <body>
+        <img src="images/settings.png" class="options-button" onclick="optionsBar()">
+        <div id="options-box" class='options-box'>
+            <div class='options-title'>OPTIONS</div>
+            <div id="close-button" class= 'close-button-aircraft' onclick="hideElement('options-box')">X</div>
+            <div class="option-container">
+                <div class="check-1">
+                    <input type="checkbox" id="option-airports" onclick="setAirportMarkers()">
+                </div>
+                <div class="option-1">
+                    <div class='option-text'>Airport Markers</div>
+                </div>
+                <div class="check-2">
+
+                </div>
+                <div class="option-2">
+
+                </div>
+                <div class="check-3"></div>
+                <div class="option-3"></div>
+                <div class="check-4"></div>
+                <div class="option-4"></div>
+              </div>
+        </div>
         <div id="info-box" class='info-box'>
-            <div id="close-button" class= 'close-button' onclick='hideInfoBox()'>X</div>
+            <div id="close-button" class= 'close-button-aircraft' onclick="deselectFlight()">X</div>
             <div id='call-sign-title' class = 'callsign-title'>None</div>
                 <div class="grid-container aircraft-info">
                     <div class="mfr-title aircraft-info-title">MFR</div>
@@ -51,7 +74,7 @@
 
         </div>
         <div id="livemap"></div>
-        <div id="connection-status" class="status-red" onclick ='showInfoBox()'>DISCONNECTED</div>
+        <div id="connection-status" class="status-red" >DISCONNECTED</div>
         
     </body>
     <script>
