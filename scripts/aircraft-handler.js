@@ -35,7 +35,7 @@ function cleanUpExpired(){ // remove aircraft that haven't been updated in 60 se
 function getAircraft(hex_ident){
     for (var i = 0; i < active.length;i++){
         if (active[i].hex_ident == hex_ident){
-            return active[i]
+            return active[i];
         }
     }
     return null;
