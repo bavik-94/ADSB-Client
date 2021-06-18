@@ -1,3 +1,4 @@
+
 class SideBar{
     constructor(){
         var divs = ['hex_ident','reg','mfr','model','callsign','position','altitude',
@@ -19,6 +20,17 @@ class SideBar{
 
         this.position.innerHTML = aircraft.lat + ', ' + aircraft.lon;
 
+        if (aircraft.callsign){
+            document.getElementById('call-sign-title').innerHTML = aircraft.callsign;
+        }else{
+            if (aircraft.reg){
+                document.getElementById('call-sign-title').innerHTML = aircraft.reg;
+            }else{
+                document.getElementById('call-sign-title').innerHTML = aircraft.hex;
+            }
+        }
+        
+
         for (var i = 0; i < propList.length; i++){
             for (var j = 0; j < aircraftProps.length; j++){
                 if (propList[i] == aircraftProps[j]){
@@ -29,3 +41,17 @@ class SideBar{
     }
 }
 
+function hideElement(target){
+    var element = document.getElementById(target);
+    element.style.visibility = 'hidden';
+}
+
+function optionsBar(){
+    var barElement = document.getElementById('options-box');
+
+    if (barElement.style.visibility == 'hidden' || barElement.style.visibility == '' ){
+        barElement.style.visibility ='visible';
+        return;
+    }
+    barElement.style.visibility = 'hidden';
+}
