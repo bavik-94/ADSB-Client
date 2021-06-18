@@ -35,13 +35,13 @@ class Aircraft{
     }
 
     removeMarker(){
-        this.marker.remove(livemap)
+        this.marker.remove(livemap);
         this.marker = null;
     }
 
     setHistory(data){ //populate list of aircraft positions to build line from history request
         for (var i = 0; i < data.lat.length; i++){
-            var newPoint = [data.lat[i],data.lon[i],data.altitude[i]]
+            var newPoint = [data.lat[i],data.lon[i],data.altitude[i]];
             this.history.push(newPoint);
             }
     }
@@ -55,7 +55,7 @@ class Aircraft{
     }
 
     removeInspected(){
-        document.getElementById('info-box').style.visibility = 'hidden'
+        document.getElementById('info-box').style.visibility = 'hidden';
         this.selected = false;
         this.history = [];
         if (this.polyLine){
